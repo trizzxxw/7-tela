@@ -1,4 +1,4 @@
-# Lunara Live 🌙
+# entretenimento
 
 Site de transmissão de tela em tempo real com WebRTC.
 
