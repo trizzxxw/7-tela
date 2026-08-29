@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0710">
+  <title>Lunara Live | Transmissão de Tela</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <header class="topbar">
+    <a href="/" class="logo">
+      <span class="logo-mark">◈</span>
+      <span>LUNARA <b>LIVE</b></span>
+    </a>
+    <span class="secure-pill">● WebRTC seguro</span>
+  </header>
+
+  <main>
+    <section id="landing" class="landing">
+      <div class="hero">
+        <span class="eyebrow">STREAM YOUR SCREEN</span>
+        <h1>Compartilhe sua tela.<br><span>Em tempo real.</span></h1>
+        <p>Crie uma sala privada, converse pelo chat e transmita sua tela diretamente pelo navegador.</p>
+
+        <div class="hero-badges">
+          <span>⚡ Baixa latência</span>
+          <span>🔐 Senha opcional</span>
+          <span>💬 Chat ao vivo</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tabs">
+          <button class="tab active" data-tab="host">Transmitir</button>
+          <button class="tab" data-tab="watch">Assistir</button>
+        </div>
+
+        <div id="hostPanel" class="tab-panel active">
+          <label>Seu nome</label>
+          <input id="hostName" placeholder="Ex.: Lua" maxlength="24">
+
+          <label>Nome da transmissão</label>
+          <input id="streamTitle" placeholder="Ex.: Tela da equipe" maxlength="42">
+
+          <label>Senha da sala <small>opcional</small></label>
+          <input id="hostPassword" placeholder="Deixe vazio para sala pública" maxlength="40">
+
+          <button id="createRoom" class="primary">Criar transmissão</button>
+        </div>
+
+        <div id="watchPanel" class="tab-panel">
+          <label>Seu nome</label>
+          <input id="viewerName" placeholder="Ex.: Bia" maxlength="24">
+
+          <label>Código da sala</label>
+          <input id="roomCode" placeholder="Ex.: LUA7X9" maxlength="10">
+
+          <label>Senha <small>se houver</small></label>
+          <input id="viewerPassword" type="password" placeholder="Senha da sala" maxlength="40">
+
+          <button id="joinRoom" class="primary">Entrar para assistir</button>
+        </div>
+
+        <div id="error" class="error hidden"></div>
+      </div>
+    </section>
+
+    <section id="broadcast" class="broadcast hidden">
+      <div class="broadcast-head">
+        <div>
+          <div class="live-line">
+            <span id="liveBadge" class="live-badge offline">OFFLINE</span>
+            <span id="broadcastTitle">Transmissão ao vivo</span>
+          </div>
+          <div class="meta">
+            <span>Sala <b id="roomLabel">------</b></span>
+            <span>•</span>
+            <span id="viewerCount">0 espectadores</span>
+          </div>
+        </div>
+
+        <div class="head-actions">
+          <button id="copyInvite" class="ghost">🔗 Copiar convite</button>
+          <button id="fullscreenBtn" class="ghost">⛶ Tela cheia</button>
+          <button id="leaveBtn" class="danger">Sair</button>
+        </div>
+      </div>
+
+      <div class="layout">
+        <div class="video-card">
+          <video id="video" autoplay playsinline></video>
+
+          <div id="emptyState" class="empty-state">
+            <div class="screen-icon">▣</div>
+            <h2 id="emptyTitle">Pronto para transmitir</h2>
+            <p id="emptyText">Escolha uma tela, janela ou aba do navegador.</p>
+            <button id="shareBtn" class="primary share">Compartilhar tela</button>
+          </div>
+
+          <div class="video-status">
+            <span id="statusText">Conectando...</span>
+            <span id="roleLabel"></span>
+          </div>
+        </div>
+
+        <aside class="chat">
+          <div class="chat-head">
+            <div>
+              <strong>Chat ao vivo</strong>
+              <small>Converse com a sala</small>
+            </div>
+            <span class="chat-dot"></span>
+          </div>
+
+          <div id="messages" class="messages">
+            <div class="system-msg">Bem-vindo ao chat ✨</div>
+          </div>
+
+          <form id="chatForm" class="chat-form">
+            <input id="chatInput" maxlength="300" placeholder="Digite uma mensagem..." autocomplete="off">
+            <button type="submit">➤</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

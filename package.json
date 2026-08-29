@@ -1,0 +1,17 @@
+{
+  "name": "lunara-live",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lunara Live - transmissão de tela em tempo real com WebRTC, chat e salas privadas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
