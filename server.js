@@ -174,4 +174,7 @@ wss.on("connection", (ws) => {
 });
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => console.log(`Tela Live Pro: http://localhost:${PORT}`));
+
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`Lunara Live rodando na porta ${PORT}`);
+});
